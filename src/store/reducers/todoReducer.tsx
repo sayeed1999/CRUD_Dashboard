@@ -27,6 +27,13 @@ const todoReducer = (state: any = appState, action: any): any => {
       break;
     }
     case 'UPDATE_TODO': {
+      let index = state.todos.findIndex((x: any) => x.id === action.payload.id);
+      let todos = [ ...state.todos ];
+      todos[index] = action.payload;
+      state = {
+        ...state,
+        todos: todos,
+      }
       break;
     }
     case 'DELETE_TODO': {
