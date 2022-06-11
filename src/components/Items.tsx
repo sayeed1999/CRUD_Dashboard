@@ -11,21 +11,28 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
+import { getAllTodos, updateTodo, deleteTodo } from '../store/actions/todoAction';
+import { useEffect } from "react";
 
 const Items = (props: any) => {
+
+    useEffect(() => {
+      props.getAll();
+    }, []);
+
     return <Paper elevation={3} className="my-4">
         <List>
-        {props.todos.map((todo: any) => (
+        {props?.todos?.map((todo: any, index: number) => (
             <ListItem disablePadding key={todo.id}>
                 <ListItemButton disableTouchRipple style={{cursor: "default"}}>
-                    <ListItemText primary={`${todo.id}. ${todo.title}`} />
+                    <ListItemText primary={`${index + 1}. ${todo.title}`} />
                     <Tooltip title="Modify">
                       <IconButton color="primary">
                         <EditIcon />
                       </IconButton>
                     </Tooltip>
                     <Tooltip title="Delete">
-                      <IconButton color="secondary">
+                      <IconButton color="secondary" onClick={() => props.delete(todo.id)}>
                         <DeleteIcon />
                       </IconButton>
                     </Tooltip>
@@ -43,8 +50,17 @@ const Items = (props: any) => {
 
 const mapStateToProps = (state: any) => {
     return {
-        todos: state.todos
+        todos: state.todo.todos,
     };
 }
 
-export default connect(mapStateToProps)(Items);
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+      getAll: () => dispatch(getAllTodos()),
+      update: () => dispatch(updateTodo({})),
+      delete: (id: number) => dispatch(deleteTodo(id)),
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Items);

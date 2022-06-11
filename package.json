@@ -14,6 +14,7 @@
     "@types/node": "^16.11.39",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
+    "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
     "node-sass": "^7.0.1",
     "react": "^18.1.0",
@@ -21,6 +22,8 @@
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "redux-promise-middleware": "^6.1.2",
+    "redux-thunk": "^2.4.1",
     "typescript": "^4.7.3",
     "web-vitals": "^2.1.4"
   },
