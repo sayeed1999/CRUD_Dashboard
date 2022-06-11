@@ -1,4 +1,6 @@
 import './App.scss';
+import Home from './components/Home';
+import Appbar from './components/Appbar';
 
 import { Provider } from 'react-redux';
 import store from './store'; // if a filename is index.js, it is auto imported when its folder is imported
@@ -6,9 +8,8 @@ import store from './store'; // if a filename is index.js, it is auto imported w
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        Lalala...
-      </div>
+      <Appbar />
+      <Home />
     </Provider>
   );
 }
