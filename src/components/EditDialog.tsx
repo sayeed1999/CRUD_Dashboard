@@ -19,7 +19,7 @@ const EditDialog = (props: any) => {
             id="name"
             label="Edit Todo Title"
             variant="standard"
-            value={props.todo.title}
+            value={props.todo?.title}
             onChange={(e) => props.setTodo((prev: any) => ({ ...props.todo, title: e.target.value }))}
           />
         </DialogContent>
