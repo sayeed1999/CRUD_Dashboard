@@ -32,4 +32,4 @@ const EditDialog = (props: any) => {
   );
 }
 
-export default EditDialog;
+export default React.memo(EditDialog);

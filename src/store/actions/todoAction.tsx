@@ -1,5 +1,5 @@
 import axios from "axios";
-export function getAllTodos() {
+export const getAllTodos = () => {
     return async (dispatch: any) => {
         const res = await axios.get('https://jsonplaceholder.typicode.com/todos');
         dispatch({
@@ -9,7 +9,7 @@ export function getAllTodos() {
     }
 }
 
-export function createTodo(todo: any) {
+export const createTodo = (todo: any) => {
     return async (dispatch: any) => {
         const res = await axios.post('https://jsonplaceholder.typicode.com/todos', todo);
         dispatch({
@@ -19,7 +19,7 @@ export function createTodo(todo: any) {
     }
 }
 
-export function updateTodo(todo: any) {
+export const updateTodo = (todo: any) => {
     return async (dispatch: any) => {
         const res = await axios.put(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, todo);
         dispatch({
@@ -29,7 +29,7 @@ export function updateTodo(todo: any) {
     }
 }
 
-export function deleteTodo(id: number) {
+export const deleteTodo = (id: number) => {
     return async (dispatch: any) => {
         const res = await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
         dispatch({
